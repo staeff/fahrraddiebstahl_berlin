@@ -18,10 +18,10 @@ load_dotenv()
 
 def tweetStats():
     # Authenticate to Twitter
-    api_key = os.getenv("api_key")
-    api_key_secret = os.getenv("api_key_secret")
-    access_token = os.getenv("access_token")
-    access_token_secret = os.getenv("access_token_secret")
+    api_key = os.getenv("TWITTER_KEY")
+    api_key_secret = os.getenv("TWITTER_SECRET")
+    access_token = os.getenv("TWITTER_ACCESS_TOKEN")
+    access_token_secret = os.getenv("TWITTER_ACCESS_TOKEN_SECRET")
     auth = tweepy.OAuthHandler(api_key, api_key_secret)
 
     auth.set_access_token(access_token, access_token_secret)
@@ -121,5 +121,6 @@ def get_data():
                             today())
             report.save()
 
-    if newData:
+    twitter = os.getenv("USE_TWITTER", "0")
+    if newData and twitter:
         tweetStats()
