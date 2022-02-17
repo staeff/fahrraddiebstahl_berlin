@@ -81,14 +81,21 @@ def tweetStats():
     api.update_status(tweet, answer.id)
     print("Alle Tweets geposted!")
 
+def transform_date(datestr):
+    """Transform date string
+
+       from dd.mm.YYYY to YYYY-mm-dd
+    """
+    return '-'.join(datestr.split(".")[::-1])
+
 @background(schedule=60)
 def get_data():
     url = "https://www.internetwache-polizei-berlin.de/vdb/Fahrraddiebstahl.csv"
     csv = pd.read_csv(url, encoding='unicode_escape')
 
-    csv["ANGELEGT_AM"] = csv["ANGELEGT_AM"].apply(lambda x: x[-4:] + "-" + x[-7:-5] + "-" + x[:2])
-    csv["TATZEIT_ANFANG_DATUM"] = csv["TATZEIT_ANFANG_DATUM"].apply(lambda x: x[-4:] + "-" + x[-7:-5] + "-" + x[:2])
-    csv["TATZEIT_ENDE_DATUM"] = csv["TATZEIT_ENDE_DATUM"].apply(lambda x: x[-4:] + "-" + x[-7:-5] + "-" + x[:2])
+    csv["ANGELEGT_AM"] = csv["ANGELEGT_AM"].apply(transform_date)
+    csv["TATZEIT_ANFANG_DATUM"] = csv["TATZEIT_ANFANG_DATUM"].apply(transform_date)
+    csv["TATZEIT_ENDE_DATUM"] = csv["TATZEIT_ENDE_DATUM"].apply(transform_date)
 
     newData = False
     for _, row in csv.iterrows():
