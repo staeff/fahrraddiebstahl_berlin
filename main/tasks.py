@@ -2,6 +2,8 @@ import hashlib
 import datetime
 import numpy as np
 from background_task import background
+from dotenv import load_dotenv
+import os
 
 import pandas as pd
 from dateutil.utils import today
@@ -12,14 +14,14 @@ from django.db.models import Count
 from main.models import Report
 import json
 
+load_dotenv()
+
 def tweetStats():
     # Authenticate to Twitter
-    with open('./config.json') as key_file:
-        config = json.load(key_file)
-    api_key = config["api_key"]
-    api_key_secret = config["api_key_secret"]
-    access_token = config["access_token"]
-    access_token_secret = config["access_token_secret"]
+    api_key = os.getenv("api_key")
+    api_key_secret = os.getenv("api_key_secret")
+    access_token = os.getenv("access_token")
+    access_token_secret = os.getenv("access_token_secret")
     auth = tweepy.OAuthHandler(api_key, api_key_secret)
 
     auth.set_access_token(access_token, access_token_secret)
