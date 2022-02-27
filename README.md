@@ -10,6 +10,16 @@ Daten direkt herunterladen unter: https://www.internetwache-polizei-berlin.de/vd
 
 Presse: https://www.golem.de/news/berlin-polizei-testet-open-data-gegen-fahrradklau-2109-159424.html
 
+## Geographische Informationen (LOR)
+
+Die Geographie von Berlin ist durch den Senat in lebensweltlich orientierte Räume (LOR) organisiert.
+Die Daten liegen in drei Hierarchiestufen vor: Prognoseraum (PGR), Bezirksregion (BZR) und Planungsraum (PLZ).
+
+Es handelt sich um Vektordaten, die für das Projekt in `geojson` umgewandelt wurden.
+Der verwendete Datensatz ist Stand 01.01.2021 (542 PLR)
+
+[Überblick](https://www.stadtentwicklung.berlin.de/planen/basisdaten_stadtentwicklung/lor/de/download.shtml)
+
 ## Technologie
 
 ### Django 3.2.7
