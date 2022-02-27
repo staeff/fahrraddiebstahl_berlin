@@ -1,10 +1,7 @@
-from dateutil.utils import today
-from django.db import models
 
 # Create your models here.
 # -*- coding: utf-8 -*-
-import hashlib
-
+from django.db import models
 
 class Report(models.Model):
     BIKE_TYPES = [
@@ -39,38 +36,3 @@ class Report(models.Model):
     reason = models.CharField(max_length=2, choices=REASON)
     hashvalue = models.CharField(max_length=32, primary_key=True)
     date_published = models.DateField(auto_now_add=True, verbose_name="date published")
-
-    @classmethod
-    def create(
-        cls,
-        createdDay,
-        beginDay,
-        beginHour,
-        endDay,
-        endHour,
-        lor,
-        damage,
-        tryBike,
-        typeOfBike,
-        delict,
-        reason,
-        hash,
-        date_published,
-    ):
-        report = cls(
-            createdDay=createdDay,
-            beginDay=beginDay,
-            beginHour=beginHour,
-            endDay=endDay,
-            endHour=endHour,
-            lor=lor,
-            damage=damage,
-            tryBike=tryBike,
-            typeOfBike=typeOfBike,
-            delict=delict,
-            reason=reason,
-            hash=hash,
-            date_published=date_published,
-        )
-
-        return report

@@ -144,22 +144,23 @@ def get_data():
             continue
         else:
             newData = True
-            report = Report(
-                row["ANGELEGT_AM"],
-                row["TATZEIT_ANFANG_DATUM"],
-                row["TATZEIT_ANFANG_STUNDE"],
-                row["TATZEIT_ENDE_DATUM"],
-                row["TATZEIT_ENDE_STUNDE"],
-                lor,
-                row["SCHADENSHOEHE"],
-                row["VERSUCH"],
-                row["ART_DES_FAHRRADS"],
-                row["DELIKT"],
-                row["ERFASSUNGSGRUND"],
-                hash,
-                today(),
+            print(f"Creating record {hash}")
+
+            Report.objects.create(
+                createdDay=row["ANGELEGT_AM"],
+                beginDay=row["TATZEIT_ANFANG_DATUM"],
+                beginHour=row["TATZEIT_ANFANG_STUNDE"],
+                endDay=row["TATZEIT_ENDE_DATUM"],
+                endHour=row["TATZEIT_ENDE_STUNDE"],
+                lor=lor,
+                damage=row["SCHADENSHOEHE"],
+                tryBike=row["VERSUCH"],
+                typeOfBike=row["ART_DES_FAHRRADS"],
+                delict=row["DELIKT"],
+                reason=row["ERFASSUNGSGRUND"],
+                hashvalue=hash,
+                date_published=today(),
             )
-            report.save()
 
     twitter = os.getenv("USE_TWITTER", "0")
     if newData and twitter:
