@@ -7,26 +7,78 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Report',
+            name="Report",
             fields=[
-                ('createdDay', models.DateField()),
-                ('beginDay', models.DateField()),
-                ('beginHour', models.PositiveSmallIntegerField()),
-                ('endDay', models.DateField()),
-                ('endHour', models.PositiveSmallIntegerField()),
-                ('lor', models.CharField(max_length=8)),
-                ('damage', models.IntegerField()),
-                ('tryBike', models.CharField(choices=[('T', 'Ja'), ('F', 'Nein'), ('U', 'Unbekannt')], max_length=1)),
-                ('typeOfBike', models.CharField(choices=[('HF', 'Herrenfahrrad'), ('FF', 'Fahrrrad'), ('DF', 'Damenfahrrad'), ('MB', 'Mountainbike'), ('RB', 'Rennrad'), ('KF', 'Kinderfahrrad'), ('LF', 'Lastenfahrrad'), ('DF', 'diverse Fahrräder')], max_length=2)),
-                ('delict', models.CharField(choices=[('FD', 'Fahrraddiebstahl'), ('KB', 'Keller- und Bodeneinbruch')], max_length=2)),
-                ('reason', models.CharField(choices=[('SF', 'Sonstiger schwerer Diebstahl von Fahrrädern'), ('SK', 'Sonstiger schwerer Diebstahl in/aus Keller/Boden von Fahrrädern'), ('EF', 'Einfacher Diebstahl von Fahrrädern'), ('EK', 'Einfacher Diebstahl aus Keller/Boden von Fahrrädern')], max_length=2)),
-                ('hashvalue', models.CharField(max_length=32, primary_key=True, serialize=False)),
-                ('date_published', models.DateField(auto_now_add=True, verbose_name='date published')),
+                ("createdDay", models.DateField()),
+                ("beginDay", models.DateField()),
+                ("beginHour", models.PositiveSmallIntegerField()),
+                ("endDay", models.DateField()),
+                ("endHour", models.PositiveSmallIntegerField()),
+                ("lor", models.CharField(max_length=8)),
+                ("damage", models.IntegerField()),
+                (
+                    "tryBike",
+                    models.CharField(
+                        choices=[("T", "Ja"), ("F", "Nein"), ("U", "Unbekannt")],
+                        max_length=1,
+                    ),
+                ),
+                (
+                    "typeOfBike",
+                    models.CharField(
+                        choices=[
+                            ("HF", "Herrenfahrrad"),
+                            ("FF", "Fahrrrad"),
+                            ("DF", "Damenfahrrad"),
+                            ("MB", "Mountainbike"),
+                            ("RB", "Rennrad"),
+                            ("KF", "Kinderfahrrad"),
+                            ("LF", "Lastenfahrrad"),
+                            ("DF", "diverse Fahrräder"),
+                        ],
+                        max_length=2,
+                    ),
+                ),
+                (
+                    "delict",
+                    models.CharField(
+                        choices=[
+                            ("FD", "Fahrraddiebstahl"),
+                            ("KB", "Keller- und Bodeneinbruch"),
+                        ],
+                        max_length=2,
+                    ),
+                ),
+                (
+                    "reason",
+                    models.CharField(
+                        choices=[
+                            ("SF", "Sonstiger schwerer Diebstahl von Fahrrädern"),
+                            (
+                                "SK",
+                                "Sonstiger schwerer Diebstahl in/aus Keller/Boden von Fahrrädern",
+                            ),
+                            ("EF", "Einfacher Diebstahl von Fahrrädern"),
+                            (
+                                "EK",
+                                "Einfacher Diebstahl aus Keller/Boden von Fahrrädern",
+                            ),
+                        ],
+                        max_length=2,
+                    ),
+                ),
+                (
+                    "hashvalue",
+                    models.CharField(max_length=32, primary_key=True, serialize=False),
+                ),
+                (
+                    "date_published",
+                    models.DateField(auto_now_add=True, verbose_name="date published"),
+                ),
             ],
         ),
     ]

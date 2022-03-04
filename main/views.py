@@ -4,6 +4,7 @@ import json
 from django.shortcuts import render
 from django.views.generic import ListView
 from pyproj import Transformer
+
 from . import models
 from .tasks import get_data
 

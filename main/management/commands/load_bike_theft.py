@@ -1,9 +1,11 @@
 """Import bike theft data from csv file."""
-import pandas as pd
 import hashlib
+
+import pandas as pd
 from dateutil.utils import today
-from main.models import Report
 from django.core.management.base import BaseCommand
+
+from main.models import Report
 
 
 class Command(BaseCommand):
@@ -26,7 +28,9 @@ class Command(BaseCommand):
         csv = pd.read_csv(url, encoding="unicode_escape")
 
         csv["ANGELEGT_AM"] = csv["ANGELEGT_AM"].apply(self.transform_date)
-        csv["TATZEIT_ANFANG_DATUM"] = csv["TATZEIT_ANFANG_DATUM"].apply(self.transform_date)
+        csv["TATZEIT_ANFANG_DATUM"] = csv["TATZEIT_ANFANG_DATUM"].apply(
+            self.transform_date
+        )
         csv["TATZEIT_ENDE_DATUM"] = csv["TATZEIT_ENDE_DATUM"].apply(self.transform_date)
 
         for _, row in csv.iterrows():
