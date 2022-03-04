@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_extensions",
+    "simple_deploy",
     "background_task",
     "rest_framework",
     "main",
@@ -140,3 +141,14 @@ STATICFILES_DIRS = [
 
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
+
+import os
+if 'ON_HEROKU' in os.environ:
+    ALLOWED_HOSTS.append('intense-dawn-20326.herokuapp.com')
+    import dj_database_url
+    DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+    DEBUG = os.getenv('DEBUG') == 'TRUE'
+    SECRET_KEY = os.getenv('SECRET_KEY')

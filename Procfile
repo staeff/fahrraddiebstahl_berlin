@@ -1,0 +1,1 @@
+web: gunicorn fahrraddiebstahl_berlin.wsgi --log-file -

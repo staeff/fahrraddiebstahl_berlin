@@ -3,6 +3,7 @@ Django==3.2.7
 django-background-tasks==1.2.5
 djangorestframework==3.12.4
 django_extensions
+django-simple-deploy==0.2.5
 geojson-rewind==1.0.1
 isort==5.10.1
 pandas==1.3.2
@@ -11,3 +12,8 @@ PySocks==1.7.1
 python-dotenv==0.19.2
 requests==2.26.0
 tweepy==3.10.0
+
+gunicorn                      # Added by simple_deploy command.
+psycopg2<2.9                  # Added by simple_deploy command.
+dj-database-url               # Added by simple_deploy command.
+whitenoise                    # Added by simple_deploy command.
