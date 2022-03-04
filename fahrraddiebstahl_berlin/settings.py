@@ -144,7 +144,7 @@ MEDIA_URL = "/media/"
 
 import os
 if 'ON_HEROKU' in os.environ:
-    ALLOWED_HOSTS.append('intense-dawn-20326.herokuapp.com')
+    ALLOWED_HOSTS.append('fahrraddiebstahl-berlin.herokuapp.com')
     import dj_database_url
     DATABASES = {'default': dj_database_url.config(default='postgres://localhost')}
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
