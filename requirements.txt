@@ -2,6 +2,7 @@ black==22.1.0
 Django==3.2.7
 django-background-tasks==1.2.5
 djangorestframework==3.12.4
+django_extensions
 geojson-rewind==1.0.1
 isort==5.10.1
 pandas==1.3.2
