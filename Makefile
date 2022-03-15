@@ -15,6 +15,10 @@ venv: ## Make a new virtual environment
 install: venv ## Make venv and install requirements
 	$(VENV)/bin/pip install -r requirements.txt
 
+.PHONY: run
+run: ## Run the server
+	$(PYTHON) manage.py runserver
+
 .PHONY: format
 format: ## Format code with isort/black
 	isort -rc $(APPS)
