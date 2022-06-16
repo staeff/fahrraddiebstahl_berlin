@@ -167,3 +167,6 @@ cython_debug/
 
 # Ignore logs from simple_deploy.
 simple_deploy_logs/
+
+# collectstatic output folder
+static_cdn
