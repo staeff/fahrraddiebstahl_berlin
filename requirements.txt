@@ -14,6 +14,6 @@ requests==2.26.0
 tweepy==3.10.0
 
 gunicorn                      # Added by simple_deploy command.
-psycopg2<2.9                  # Added by simple_deploy command.
+psycopg2-binary<2.9           # Added by simple_deploy command.
 dj-database-url               # Added by simple_deploy command.
 whitenoise                    # Added by simple_deploy command.
